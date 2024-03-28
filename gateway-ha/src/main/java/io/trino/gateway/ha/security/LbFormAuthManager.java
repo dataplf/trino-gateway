@@ -147,9 +147,12 @@ public class LbFormAuthManager
                 credentials.getPassword())) {
             return true;
         }
-
+        log.info("check if presetUsers");
         if (presetUsers != null) {
+            log.info("check if presetUsers");
             UserConfiguration user = presetUsers.get(credentials.getUsername());
+            log.info(user.password());
+            log.info(credentials.getPassword());
             return user != null
                     && user.password().equals(credentials.getPassword());
         }
